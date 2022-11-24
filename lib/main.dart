@@ -1,4 +1,154 @@
 import 'package:flutter/material.dart';
+import 'package:latihan_layout/item_list.dart';
+import 'package:latihan_layout/list_view.dart';
+import 'package:latihan_layout/list_view_builder.dart';
+import 'package:latihan_layout/model.dart';
+
+void main(){
+  runApp(
+    const MaterialApp(
+    home: ListViewBase(),
+    debugShowCheckedModeBanner: false,
+  ),);
+}
+
+class ListViewBase extends StatefulWidget {
+  const ListViewBase({Key? key}) : super(key: key);
+
+  @override
+  State<ListViewBase> createState() => _ListViewBaseState();
+}
+
+class _ListViewBaseState extends State<ListViewBase> {
+  List<DataMhs> listMhs = [];
+
+  @override
+  void initState() {
+    listMhs.add(DataMhs(nama: 'Farid Padilah',kelas: 'IF-A',nim: '52355745'));
+    for(int a=0;a<100;a++) {
+      listMhs.add(DataMhs(nama: 'Mugiwara $a',kelas: 'IF-$a',nim: '123456$a'));
+    }
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+          title : const Text('Contoh List view')
+      ),
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const ListViews()),
+                        );
+                      },
+                      child: const Text('List View '),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 10),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const ListViewsBuilder()),
+                        );
+                      },
+                      child: const Text('List View Builder'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        )
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+import 'package:flutter/material.dart';
 
 void main(){
   runApp(
@@ -73,7 +223,5 @@ class _LayoutingState extends State<Layouting> {
       ),
     );
   }
-
-
-
 }
+*/
